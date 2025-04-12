@@ -104,4 +104,4 @@ Typing Test Game: Day-1
 
 -----------------------------------------------------------------------------
 Made the balloon container with 50px width and 85px height
-The display screen is 498.4px wide and 556.5px high.
+The display screen is 498.4px wide and 556.5px high. Made 4.2px padding so that 490px is the display Screen.

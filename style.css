@@ -13,6 +13,7 @@ main{
     border: 1px solid black;
     margin-left: 50px;
     margin-top: 50px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5),5px 0 5px rgba(0, 0, 0, 0.5);
 }
 .displayScreen{
     background-color: #B3E5FC;
@@ -20,6 +21,8 @@ main{
     height: 93%;
     padding: 0px 4.2px;
     display: flex;
+    position: relative;
+    overflow: hidden;
 }
 #playerInput{
     width: 100%;
@@ -35,6 +38,7 @@ main{
     height: 600px;
     border: 1px solid black;
     margin-top: 50px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 5px 0 5px rgba(0, 0, 0, 0.5);
 }
 .balloonContainer{
     width: 50px;
@@ -160,4 +164,39 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.gameModal{
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+.gameModal.hide{
+    display: none;
+    opacity: 0;
+}
+.gameModal>button{
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 0, 0, 0.7);
+    border: none;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.gameModal>button:hover{
+    background: rgba(255, 0, 0, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
