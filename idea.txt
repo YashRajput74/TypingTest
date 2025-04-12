@@ -1,0 +1,107 @@
+Typing Test Game: Day-1
+-Let's see we have the idea right now, along with some feature's ideas in it.
+-The first idea is that we will make a game in which balloons fly from bottom of the screen to top(using animations).
+-Each balloon will have a word inside it and the baloon will disappear when you enter the word in given space correctly.(display=none)[There is a array and the word is poped out of it.][Also the words are pushed inside the array through an api which has all the words of English.][We may use an object instead of an array to make the propagation fast. Since player can enter anyword displayed on screen and we need fastest response time.]
+-The space key is signal that player has input the word in the system and the word gets submitted(event listener).
+-The system checks whether the input word is in the array, the array here has the words that are displayed on the screen.
+-The balloons fly using animations.
+-We have a SetTimeOut which pushs the word and ask the program to launch a balloon. The SetTimeOut time gets changed as the player progress. The time changing system is inside a setInterval which change the time every 10sec.(The higher the difficulty the less time in setInterval.)
+-The easy option will have only small letter words, or capital words and the hard level has mixed ones. Super hard will have punctuations and number too.
+
+-This is the basic UI code which i will use later: 
+-----
+{
+    <div class="balloon blue">
+        <span class="text">I</span>
+        <div class="thread"></div>
+    </div>
+    <div class="balloon yellow">
+        <span class="text">Present</span>
+        <div class="thread"></div>
+    </div>
+    <div class="balloon green">
+        <span class="text">to</span>
+        <div class="thread"></div>
+    </div>
+    <div class="balloon purple">
+        <span class="text">you</span>
+        <div class="thread"></div>
+    </div>
+    <div class="balloon orange">
+        <span class="text">my</span>
+        <div class="thread"></div>
+    </div>
+    <div class="balloon pink">
+        <span class="text">idea</span>
+        <div class="thread"></div>
+    </div>
+    <div class="balloon red">
+        <span class="text">of</span>
+        <div class="thread"></div>
+    </div>
+    <div class="balloon aqua">
+        <span class="text">project</span>
+        <div class="thread"></div>
+    </div>
+}
+-----
+{
+    body {
+        background-color: #B3E5FC;
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 20vh;
+    }
+    .balloon {
+        position: relative;
+        width: 80px;
+        height: 100px;
+        background: radial-gradient(circle at 40% 30%, #ffffff80, red); 
+        border-radius: 50% 50% 45% 45%; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #444444;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .thread {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 25px;
+        background-color: #444;
+    }  
+    .balloon.red {
+        background: radial-gradient(circle at 40% 30%, #ffffff88, #e53935);
+    }
+    .balloon.blue {
+        background: radial-gradient(circle at 40% 30%, #ffffff88, #1e88e5);
+    }
+    .balloon.yellow {
+        background: radial-gradient(circle at 40% 30%, #ffffffaa, #fdd835);
+    }
+    .balloon.green {
+        background: radial-gradient(circle at 40% 30%, #ffffff88, #43a047);
+    }
+    .balloon.purple {
+        background: radial-gradient(circle at 40% 30%, #ffffff88, #8e24aa);
+    }
+    .balloon.orange {
+        background: radial-gradient(circle at 40% 30%, #ffffff88, #fb8c00);
+    }
+    .balloon.pink {
+        background: radial-gradient(circle at 40% 30%, #ffffff88, #ec407a);
+    }
+    .balloon.aqua {
+        background: radial-gradient(circle at 40% 30%, #ffffff88, #26c6da);
+    }
+}
+
+-----------------------------------------------------------------------------
+Made the balloon container with 50px width and 85px height
+The display screen is 498.4px wide and 556.5px high.

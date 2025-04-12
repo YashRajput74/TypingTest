@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+main{
+    display: flex;
+}
+.gameContainer{
+    width: 500px;
+    height: 600px;
+    border: 1px solid black;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.displayScreen{
+    background-color: #B3E5FC;
+    width: 100%;
+    height: 93%;
+    padding: 0px 4.2px;
+    display: flex;
+}
+#playerInput{
+    width: 100%;
+    height: 7.1%;
+    border: none;
+    outline: none;
+    border-top: 1px solid black;
+    padding-left: 10px;
+    font-size: 1.2rem;
+}
+.ruleBox{
+    width: 300px;
+    height: 600px;
+    border: 1px solid black;
+    margin-top: 50px;
+}
+.balloonContainer{
+    width: 50px;
+    height: 85px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.balloon{
+    position: relative;
+    width: 50px;
+    height: 60px;
+    background: radial-gradient(circle at 40% 30%, #ffffff80, red); 
+    border-radius: 50% 50% 45% 45%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #444444;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.thread{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 25px;
+    background-color: #444;
+}  
+.balloon.red{
+    background: radial-gradient(circle at 40% 30%, #ffffff88, #e53935);
+}
+.balloon.blue{
+    background: radial-gradient(circle at 40% 30%, #ffffff88, #1e88e5);
+}
+.balloon.yellow{
+    background: radial-gradient(circle at 40% 30%, #ffffffaa, #fdd835);
+}
+.balloon.green{
+    background: radial-gradient(circle at 40% 30%, #ffffff88, #43a047);
+}
+.balloon.purple{
+    background: radial-gradient(circle at 40% 30%, #ffffff88, #8e24aa);
+}
+.balloon.orange{
+    background: radial-gradient(circle at 40% 30%, #ffffff88, #fb8c00);
+}
+.balloon.pink{
+    background: radial-gradient(circle at 40% 30%, #ffffff88, #ec407a);
+}
+.balloon.aqua{
+    background: radial-gradient(circle at 40% 30%, #ffffff88, #26c6da);
+}
+.leaderBoard{
+    width: 100%;
+    height: 50%;
+    background-color: #B6E3F9;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.leaderBoard>img{
+    height: 30%;
+}
+.leaderBoard>h2{
+    color: #0F3660;
+    margin: 8px;
+}
+.leaderBoard>div{
+    width: 80%;
+    height: 110px;
+    border-radius: 10px;
+    background-color: white;
+}
+.score{
+    height: 33%;
+    display: flex;
+    align-items: center;
+}
+.score>img{
+    width: 13%;
+    margin-left: 10px;
+}
+.score>span{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+.score>div{
+    margin-left: 12px;
+    margin-right: 6px;
+    background-color: #EC6056;
+    height: 68%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+.leaderBoard>div>div:last-child>div{
+    background-color: #48AF5E;
+}
+.scoreBoard{
+    position: relative;
+}
+.scoreBoard>img{
+    width: 100%;
+}
+.scoreBoard>div{
+    position: absolute;
+    width: 120px;
+    height: 56px;
+    top: 45%;
+    left: 30%;
+    background-color: #F8EDD7;
+    color: #023A5A;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
