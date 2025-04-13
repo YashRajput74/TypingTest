@@ -166,7 +166,7 @@ main{
     align-items: center;
 }
 .gameModal{
-    width: 800px;
+    width: 500px;
     height: 600px;
     position: absolute;
     top: 50px;

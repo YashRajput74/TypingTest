@@ -8,100 +8,12 @@ Typing Test Game: Day-1
 -We have a SetTimeOut which pushs the word and ask the program to launch a balloon. The SetTimeOut time gets changed as the player progress. The time changing system is inside a setInterval which change the time every 10sec.(The higher the difficulty the less time in setInterval.)
 -The easy option will have only small letter words, or capital words and the hard level has mixed ones. Super hard will have punctuations and number too.
 
--This is the basic UI code which i will use later: 
------
-{
-    <div class="balloon blue">
-        <span class="text">I</span>
-        <div class="thread"></div>
-    </div>
-    <div class="balloon yellow">
-        <span class="text">Present</span>
-        <div class="thread"></div>
-    </div>
-    <div class="balloon green">
-        <span class="text">to</span>
-        <div class="thread"></div>
-    </div>
-    <div class="balloon purple">
-        <span class="text">you</span>
-        <div class="thread"></div>
-    </div>
-    <div class="balloon orange">
-        <span class="text">my</span>
-        <div class="thread"></div>
-    </div>
-    <div class="balloon pink">
-        <span class="text">idea</span>
-        <div class="thread"></div>
-    </div>
-    <div class="balloon red">
-        <span class="text">of</span>
-        <div class="thread"></div>
-    </div>
-    <div class="balloon aqua">
-        <span class="text">project</span>
-        <div class="thread"></div>
-    </div>
-}
------
-{
-    body {
-        background-color: #B3E5FC;
-        display: flex;
-        justify-content: space-evenly;
-        padding-top: 20vh;
-    }
-    .balloon {
-        position: relative;
-        width: 80px;
-        height: 100px;
-        background: radial-gradient(circle at 40% 30%, #ffffff80, red); 
-        border-radius: 50% 50% 45% 45%; 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        color: #444444;
-        font-weight: bold;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .thread {
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        height: 25px;
-        background-color: #444;
-    }  
-    .balloon.red {
-        background: radial-gradient(circle at 40% 30%, #ffffff88, #e53935);
-    }
-    .balloon.blue {
-        background: radial-gradient(circle at 40% 30%, #ffffff88, #1e88e5);
-    }
-    .balloon.yellow {
-        background: radial-gradient(circle at 40% 30%, #ffffffaa, #fdd835);
-    }
-    .balloon.green {
-        background: radial-gradient(circle at 40% 30%, #ffffff88, #43a047);
-    }
-    .balloon.purple {
-        background: radial-gradient(circle at 40% 30%, #ffffff88, #8e24aa);
-    }
-    .balloon.orange {
-        background: radial-gradient(circle at 40% 30%, #ffffff88, #fb8c00);
-    }
-    .balloon.pink {
-        background: radial-gradient(circle at 40% 30%, #ffffff88, #ec407a);
-    }
-    .balloon.aqua {
-        background: radial-gradient(circle at 40% 30%, #ffffff88, #26c6da);
-    }
-}
+Note-Made the balloon container with 50px width and 85px height
+Note-The display screen is 498.4px wide and 556.5px high. Made 4.2px padding so that 490px is the display Screen.
 
------------------------------------------------------------------------------
-Made the balloon container with 50px width and 85px height
-The display screen is 498.4px wide and 556.5px high. Made 4.2px padding so that 490px is the display Screen.
+Typing Test Game: Day-2
+-Spawning balloons at random positions(width is changing) in such a way that they do not collide(overlap) each other is challenging. So I have an idea that use two things:
+--Intersection observer API at the bottom of display container(exactly 85px above from bottom) to see whether a position is taken.
+--I will randomly generate left offset for balloons and check whether the position is available or not.
+--Whenever a balloon is created it will be given a random color, a random word and a random left offset these all configurations can be pushed in a object of objects...or we may make two object of objects(one for seeing whether the balloon is poped or not and other to see whether it has freed up the space or not.)
+

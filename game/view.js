@@ -36,10 +36,13 @@ export const GameView={
                 </div>
             </div>
             <div class="scoreBoard">
-                <img src="./inspirationImgs/scoreboard_hard.png" alt="">
+                <img src="./resources/scoreboard_hard.png" alt="">
                 <div class="currentScore">0</div>
             </div>
         </div>
         `;
     },
+    spawnBalloon(leftOffset){
+
+    }
 }
