@@ -17,3 +17,6 @@ Typing Test Game: Day-2
 --I will randomly generate left offset for balloons and check whether the position is available or not.
 --Whenever a balloon is created it will be given a random color, a random word and a random left offset these all configurations can be pushed in a object of objects...or we may make two object of objects(one for seeing whether the balloon is poped or not and other to see whether it has freed up the space or not.)
 
+Typing Test Game: Day-3
+-First I am thinking i should hard code and burst some balloons inside the display screen....
+-That means some balloons will be present in the screen and i will just enter something and they will be displayed none.
