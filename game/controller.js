@@ -37,11 +37,23 @@ export const gameController={
         }, 2000);
         const words=Object.values(gameModel.baloonsDisplayed);
     },
+    updateScore(wordEntered){
+        const scoreWord=wordEntered.trim();
+        let score=scoreWord.length;
+        let currentScore=document.querySelector(".currentScore").textContent;
+        currentScore=parseInt(currentScore);
+        if (wordEntered[0] === wordEntered[0].toUpperCase()) {
+            score += 1;
+        }
+        score += currentScore;
+        document.querySelector(".currentScore").textContent=score;
+    },
     popBalloon(wordEntered){
         for (let id in gameModel.baloonsDisplayed) {
             if (gameModel.baloonsDisplayed[id] == wordEntered) {
                 GameView.removeBalloon(id);  
                 gameModel.popBalloon(id);
+                this.updateScore(wordEntered);
                 break;
             }
         }
