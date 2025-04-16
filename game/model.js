@@ -15,7 +15,7 @@ export const gameModel={
         let positionOccupied=true;
 
         while(positionOccupied){
-            leftOffset=Math.floor(Math.random()*480);
+            leftOffset=Math.floor(Math.random()*450);
             positionOccupied=this.isPositionOccupied(leftOffset);
         }
         return leftOffset;

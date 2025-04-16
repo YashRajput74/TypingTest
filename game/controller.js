@@ -22,22 +22,29 @@ export const gameController={
             event.target.value="";
         }
     },
-    words: ["Hello", "friends", "we", "are", "testing"],
     spawnBalloon(){
         let counter=0;
         const interval=setInterval(() => {
-            if(counter<this.words.length){
-                const randomWord=this.words[counter];
-                const id=counter;
-                const leftOffset = gameModel.generateOffsetLeft();
-                gameModel.baloonsDisplayed[id] = randomWord;
-                gameModel.occupyPosition(id,leftOffset); 
-                GameView.createBalloon(leftOffset, randomWord, id);
-                this.monitorBalloon(id,leftOffset);
-                counter++;
+            if(counter<400){
+                this.fetchRandomWord().then(randomWord=>{
+                    const id=counter;
+                    const leftOffset = gameModel.generateOffsetLeft();
+                    gameModel.baloonsDisplayed[id] = randomWord;
+                    gameModel.occupyPosition(id,leftOffset); 
+                    GameView.createBalloon(leftOffset, randomWord, id);
+                    this.monitorBalloon(id,leftOffset);
+                    counter++;
+                })
             }
         }, 1000);
-        const words=Object.values(gameModel.baloonsDisplayed);
+    },
+    fetchRandomWord(){
+        return fetch("/api/word")
+        .then(response=>response.json())
+        .then(data=>data.word)
+        .catch(err=>{
+            console.error(err);
+        })
     },
     monitorBalloon(id,leftOffset){
         const balloonContainer=document.getElementById(id);
