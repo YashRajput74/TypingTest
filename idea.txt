@@ -20,3 +20,7 @@ Typing Test Game: Day-2
 Typing Test Game: Day-3
 -First I am thinking i should hard code and burst some balloons inside the display screen....
 -That means some balloons will be present in the screen and i will just enter something and they will be displayed none.
+
+Typing Test Game: Day-4
+-Updated the scoreboard it adds points equal to number of alphabets in a word.
+-If it has first Word capital it will add an extra point.

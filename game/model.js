@@ -7,20 +7,29 @@ export const gameModel={
         "5": "testing" */
     },
     balloonsBelowLine: {},
-    baloonsAtBottom(balloonsBelowLine){
-        let arr = [];
-        return arr;
+    isPositionOccupied(leftOffset){
+        return Object.values(this.balloonsBelowLine).includes(leftOffset);
     },
     generateOffsetLeft(){
-        const newLeft = Math.floor(Math.random() * (maxLeft + 1));
-        for (let i = 0; i < arr.length; i++) {
-            if (newLeft==arr[i]){
-                
-            }            
-        }
-    },
-    spawnBalloon(){
+        let leftOffset;
+        let positionOccupied=true;
 
+        while(positionOccupied){
+            leftOffset=Math.floor(Math.random()*480);
+            positionOccupied=this.isPositionOccupied(leftOffset);
+        }
+        return leftOffset;
+    },
+    occupyPosition(id,leftOffset){
+        this.balloonsBelowLine[id]=leftOffset;
+    },
+    freePosition(leftOffset){
+        for(let id in this.balloonsBelowLine){
+            if(this.balloonsBelowLine[id]==leftOffset){
+                delete this.balloonsBelowLine[id];//delete deletes the id of the thing
+                break;
+            }
+        }
     },
     popBalloon(id){
         const updatedBalloons = {};

@@ -28,14 +28,34 @@ export const gameController={
         const interval=setInterval(() => {
             if(counter<this.words.length){
                 const randomWord=this.words[counter];
-                const leftOffset = Math.floor(Math.random() * 340);
                 const id=counter;
-                gameModel.baloonsDisplayed[id] = randomWord; 
+                const leftOffset = gameModel.generateOffsetLeft();
+                gameModel.baloonsDisplayed[id] = randomWord;
+                gameModel.occupyPosition(id,leftOffset); 
                 GameView.createBalloon(leftOffset, randomWord, id);
+                this.monitorBalloon(id,leftOffset);
                 counter++;
             }
-        }, 2000);
+        }, 1000);
         const words=Object.values(gameModel.baloonsDisplayed);
+    },
+    monitorBalloon(id,leftOffset){
+        const balloonContainer=document.getElementById(id);
+        const displayScreen=document.querySelector(".displayScreen");
+        const observer=new IntersectionObserver((entries,observer)=>{
+            entries.forEach(entry=>{
+                if(!entry.isIntersecting){
+                    gameModel.freePosition(leftOffset);
+                    balloonContainer.style.display="none";
+                    observer.disconnect();
+                }
+            })
+        },{
+            root: displayScreen,
+            rootMargin: "0px 0px 85px 0px",
+            threshold:0
+        })
+        observer.observe(balloonContainer);
     },
     updateScore(wordEntered){
         const scoreWord=wordEntered.trim();

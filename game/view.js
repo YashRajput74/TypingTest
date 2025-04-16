@@ -45,19 +45,34 @@ export const GameView={
     createBalloon(leftOffset,word,id){
         const colors=["red","blue","yellow","green","purple","orange","pink","aqua"];
 
+        const balloonContainer=document.createElement("div");
+        balloonContainer.classList.add("balloonContainer");
+        balloonContainer.setAttribute("id",id);
+        balloonContainer.style.left=`${leftOffset}px`;
+
         const balloonElement = document.createElement("div");
         balloonElement.classList.add("balloon");
-        balloonElement.setAttribute("id", id);
-        balloonElement.style.left = `${leftOffset}px`;
         balloonElement.classList.add(colors[Math.floor(Math.random()*colors.length)]);
-        balloonElement.innerText = word;
+
+        const textSpan=document.createElement("span");
+        textSpan.classList.add("text");
+        textSpan.innerText = word;
+
+        const thread=document.createElement("div");
+        thread.classList.add("thread");
+
+        balloonElement.appendChild(textSpan);
+        balloonElement.appendChild(thread);
+        balloonContainer.appendChild(balloonElement);
+
         const displayScreen = document.querySelector(".displayScreen");
-        displayScreen.appendChild(balloonElement);
+        displayScreen.appendChild(balloonContainer);
+
     },
     removeBalloon(id){
-        const balloonElement=document.getElementById(id);
-        if(balloonElement){
-            balloonElement.style.display="none";
+        const balloonContainer=document.getElementById(id);
+        if(balloonContainer){
+            balloonContainer.style.display="none";
         }
     }
 }
