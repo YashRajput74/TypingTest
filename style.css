@@ -9,7 +9,7 @@ main{
 }
 .gameContainer{
     width: 500px;
-    height: 600px;
+    height: 650px;
     border: 1px solid black;
     margin-left: 50px;
     margin-top: 50px;
@@ -32,13 +32,6 @@ main{
     border-top: 1px solid black;
     padding-left: 10px;
     font-size: 1.2rem;
-}
-.ruleBox{
-    width: 300px;
-    height: 600px;
-    border: 1px solid black;
-    margin-top: 50px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 5px 0 5px rgba(0, 0, 0, 0.5);
 }
 .balloonContainer{
     width: 50px;
@@ -105,9 +98,27 @@ main{
 .balloon.aqua{
     background: radial-gradient(circle at 40% 30%, #ffffff88, #26c6da);
 }
+.ruleBox{
+    width: 300px;
+    height: 650px;
+    border: 1px solid black;
+    margin-top: 50px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 5px 0 5px rgba(0, 0, 0, 0.5);
+}
+.timer{
+    width: 100%;
+    height: 9%;
+    background-color: #B6E3F9;
+    padding-top: 2vh;
+    border-bottom: 1px solid white;
+}
+.timer>p{
+    text-align: center;
+    font-size: 2rem;
+}
 .leaderBoard{
     width: 100%;
-    height: 50%;
+    height: 45%;
     background-color: #B6E3F9;
     display: flex;
     align-items: center;
@@ -174,9 +185,33 @@ main{
     justify-content: center;
     align-items: center;
 }
+.scoreBoard .scoreChange {
+    position: absolute;
+    bottom: 60px;
+    left: 170px;
+    background-color: transparent;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: #4CAF50;
+    opacity: 1;
+    pointer-events: none;
+    animation: floatUps 1s forwards;
+}
+
+@keyframes floatUps {
+    0% {
+        transform: translateY(0) translateX(-50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-40px) translateX(-50%);
+        opacity: 0;
+    }
+}
 .gameModal{
     width: 800px;
-    height: 600px;
+    height: 650px;
     position: absolute;
     top: 50px;
     left: 50px;

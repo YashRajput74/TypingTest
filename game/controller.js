@@ -36,7 +36,7 @@ export const gameController={
                     counter++;
                 })
             }
-        }, 1000);
+        }, 1500);
     },
     fetchRandomWord(){
         return fetch("/api/word")
@@ -72,6 +72,7 @@ export const gameController={
         if (wordEntered[0] === wordEntered[0].toUpperCase()) {
             score += 1;
         }
+        GameView.createScoreAnimation(score);
         score += currentScore;
         document.querySelector(".currentScore").textContent=score;
     },

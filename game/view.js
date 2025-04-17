@@ -8,6 +8,9 @@ export const GameView={
             <input type="text" name="playerInput" id="playerInput" placeholder="Enter Here">
         </div>
         <div class="ruleBox">
+            <div class="timer">
+                <p>60s</p>
+            </div>
             <div class="leaderBoard">
                 <img src="./resources/cup.png" alt="Trophy" draggable="false">
                 <h2>LEADERBOARD</h2>
@@ -74,5 +77,18 @@ export const GameView={
         if(balloonContainer){
             balloonContainer.style.display="none";
         }
+    },
+    createScoreAnimation(score){
+        const scoreChangeElement=document.createElement("div");
+        scoreChangeElement.classList.add("scoreChange");
+        scoreChangeElement.textContent=`+${score}`;
+        const scoreBoard=document.querySelector(".scoreBoard");
+        scoreBoard.appendChild(scoreChangeElement);
+        setTimeout(()=>{
+            scoreChangeElement.style.animation='floatUps 1s forwards';
+        },10);
+        setTimeout(()=>{
+            scoreChangeElement.remove();
+        },1000);
     }
 }
