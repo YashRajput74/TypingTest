@@ -1,8 +1,8 @@
-import { gameController } from "./game/controller";
+import { gameController as balloonGame } from "./game/controller";
 import { makeServer } from "./mirage";
 
 makeServer();
-gameController.init();
+balloonGame.init();
 
 document.querySelector(".gameStart").addEventListener("click",(event)=>{
     let button=event.target;

@@ -7,7 +7,10 @@ export const gameController={
         this.attachEvents();
     },
     attachEvents(){
-        document.querySelector(".gameStart").addEventListener("click",()=>this.spawnBalloon());
+        document.querySelector(".gameStart").addEventListener("click",()=>{
+            this.spawnBalloon();
+            this.timerUpdate();
+        });
         document.querySelector("#playerInput").addEventListener("keydown",(event) => this.handleKeyPress(event))
     },
     handleKeyPress(event){
@@ -24,6 +27,10 @@ export const gameController={
     },
     spawnBalloon(){
         let counter=0;
+        const startInterval=setTimeout(()=>{
+            counter=500;
+            GameView.gameOverUI();
+        },60000)
         const interval=setInterval(() => {
             if(counter<400){
                 this.fetchRandomWord().then(randomWord=>{
@@ -65,13 +72,10 @@ export const gameController={
         observer.observe(balloonContainer);
     },
     updateScore(wordEntered){
-        const scoreWord=wordEntered.trim();
-        let score=scoreWord.length;
+        let score=0;
         let currentScore=document.querySelector(".currentScore").textContent;
         currentScore=parseInt(currentScore);
-        if (wordEntered[0] === wordEntered[0].toUpperCase()) {
-            score += 1;
-        }
+        score += 1;        
         GameView.createScoreAnimation(score);
         score += currentScore;
         document.querySelector(".currentScore").textContent=score;
@@ -85,5 +89,15 @@ export const gameController={
                 break;
             }
         }
+    },
+    timerUpdate(){
+        let counter=60;
+        const interval=setInterval(()=>{
+            counter--;
+            document.querySelector(".timer>p").textContent=`${counter}s`
+            if(counter==0){
+                clearInterval(interval);
+            }
+        },1000)
     }
 }

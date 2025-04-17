@@ -8,10 +8,70 @@
 </head>
 <body>
     <header>
-
+        QuickType Quest
     </header>
     <main>
-        
+        <div class="gameContainer">
+            <div class="displayScreen">
+                
+            </div>
+            <input type="text" name="playerInput" id="playerInput" placeholder="Enter Here">
+        </div>
+        <div class="ruleBox">
+            <div class="timer">
+                <p>60s</p>
+            </div>
+            <div class="leaderBoard">
+                <img src="./resources/cup.png" alt="Trophy" draggable="false">
+                <h2>Average Speed (WPM)</h2>
+                <div>
+                    <div class="score winner">
+                        <img src="./resources/star.png" alt="Winner" draggable="false">
+                        <span>
+                            <p>Proffesional</p>
+                            <p>75</p>
+                        </span>
+                    </div>
+                    <div class="score">
+                        <div></div>
+                        <span>
+                            <p>Above Average</p>
+                            <p>55</p>
+                        </span>
+                    </div>
+                    <div class="score">
+                        <div></div>
+                        <span>
+                            <p>Average</p>
+                            <p>40</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="scoreBoard">
+                <img src="./resources/scoreboard_hard.png" alt="ScoreBoard" draggable="false">
+                <div class="currentScore">0</div>
+            </div>
+        </div>
+        <div>
+            <div class="settings">
+                <h4>Settings</h4>
+                <span>
+                    <label for="GameChosen">Choose Mode:</label>
+                    <select name="GameChosen">
+                        <option value="">Balloon Game</option>
+                        <option value="">Quotes Typing</option>
+                        <option value="">Paragraph Typing</option>
+                    </select>
+                </span>
+                <p>Your Average Speed is 35words per minute</p>
+            </div>
+            <div class="typingTutorialImg">
+                <h4>Touch Typing</h4>
+                <p>Touch typing is the technique of typing without looking at the keyboard, using all ten fingers to type. The goal of touch typing is to improve speed and accuracy by relying on muscle memory, rather than visually searching for each key.</p>
+                <img src="./inspirationImgs/images.png" alt="">
+            </div>
+        </div>
     </main>
     <footer>
 

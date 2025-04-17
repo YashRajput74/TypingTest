@@ -1,49 +1,6 @@
 export const GameView={
     init(){
-        document.querySelector("main").innerHTML=`
-        <div class="gameContainer">
-            <div class="displayScreen">
-                
-            </div>
-            <input type="text" name="playerInput" id="playerInput" placeholder="Enter Here">
-        </div>
-        <div class="ruleBox">
-            <div class="timer">
-                <p>60s</p>
-            </div>
-            <div class="leaderBoard">
-                <img src="./resources/cup.png" alt="Trophy" draggable="false">
-                <h2>LEADERBOARD</h2>
-                <div>
-                    <div class="score winner">
-                        <img src="./resources/star.png" alt="Winner" draggable="false">
-                        <span>
-                            <p>Alice</p>
-                            <p>340</p>
-                        </span>
-                    </div>
-                    <div class="score">
-                        <div></div>
-                        <span>
-                            <p>John</p>
-                            <p>240</p>
-                        </span>
-                    </div>
-                    <div class="score">
-                        <div></div>
-                        <span>
-                            <p>James</p>
-                            <p>200</p>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="scoreBoard">
-                <img src="./resources/scoreboard_hard.png" alt="ScoreBoard" draggable="false">
-                <div class="currentScore">0</div>
-            </div>
-        </div>
-        `;
+        
     },
     createBalloon(leftOffset,word,id){
         const colors=["red","blue","yellow","green","purple","orange","pink","aqua"];
@@ -90,5 +47,12 @@ export const GameView={
         setTimeout(()=>{
             scoreChangeElement.remove();
         },1000);
+    },
+    gameOverUI(){
+        const gameOverDiv=document.createElement("div");
+        gameOverDiv.classList.add("gameOverText");
+        gameOverDiv.textContent=`Game Over`;
+        const screen=document.querySelector(".displayScreen");
+        screen.appendChild(gameOverDiv);
     }
 }
